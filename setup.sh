@@ -11,7 +11,7 @@ if [[ "none" == ${type} ]]; then
         noroot touch "${path}/index.php"
     fi
 elif [[ "laravel" == ${type} ]]; then
-    noroot composer create-project laravel/laravel public_html
+    noroot composer create-project laravel/laravel ${path}
 elif [[ "ClassicPress" == ${type} ]]; then
     if [[ ! -f "${path}/wp-config.php" ]]; then
         noroot wp core download --quiet --path="${path}" https://www.classicpress.net/latest.zip
