@@ -10,7 +10,7 @@ if [[ "none" == ${type} ]]; then
     if [[ ! -f "${path}/index.php" ]]; then
         noroot touch "${path}/index.php"
     fi
-elif [[ "Laravel" == ${type} || "laravel" == ${type} ]]; then
+elif [[ "laravel" == ${type} ]]; then
     noroot composer create-project laravel/laravel public_html
 elif [[ "ClassicPress" == ${type} ]]; then
     if [[ ! -f "${path}/wp-config.php" ]]; then
