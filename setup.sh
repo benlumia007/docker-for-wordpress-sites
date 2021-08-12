@@ -11,7 +11,7 @@ if [[ "none" == ${type} ]]; then
         noroot touch "${path}/index.php"
     fi
 elif [[ "laravel" == ${type} ]]; then
-    if [[ ! -f "$path}/composer.json" ]]; then
+    if [[ ! -f "${path}/composer.json" ]]; then
         noroot composer create-project laravel/laravel ${path}
     fi
 elif [[ "ClassicPress" == ${type} ]]; then
