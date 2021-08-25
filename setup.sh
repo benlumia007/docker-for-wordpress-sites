@@ -17,7 +17,7 @@ elif [[ "laravel" == ${type} ]]; then
 elif [[ "ClassicPress" == ${type} ]]; then
     if [[ ! -f "${path}/wp-config.php" ]]; then
         noroot wp core download --quiet --path="${path}" https://github.com/ClassicPress/ClassicPress-release/archive/1.3.0-rc2.zip
-        noroot wp config create --dbhost=mysql --dbname=${domain} --dbuser=classicpress --dbpass=classicpress --quiet --path="${path}"
+        noroot wp config create --dbhost=localhost --dbname=${domain} --dbuser=classicpress --dbpass=classicpress --quiet --path="${path}"
         noroot wp core install  --url="https://${domain}.test" --title="${domain}.test" --admin_user=admin --admin_password=password --admin_email="admin@${domain}.test" --skip-email --quiet --path="${path}"
         
         if [[ "${plugins}" != "none" ]]; then
@@ -47,7 +47,7 @@ elif [[ "ClassicPress" == ${type} ]]; then
 else
     if [[ ! -f "${path}/wp-config.php" ]]; then
         noroot wp core download --quiet --path="${path}"
-        noroot wp config create --dbhost=mysql --dbname=${domain} --dbuser=wordpress --dbpass=wordpress --quiet --path="${path}"
+        noroot wp config create --dbhost=localhost --dbname=${domain} --dbuser=wordpress --dbpass=wordpress --quiet --path="${path}"
         noroot wp core install  --url="https://${domain}.test" --title="${domain}.test" --admin_user=admin --admin_password=password --admin_email="admin@${domain}.test" --skip-email --quiet --path="${path}"
 
         if [[ -d "${path}/wp-content/plugins/akismet" ]]; then
