@@ -16,7 +16,7 @@ elif [[ "laravel" == ${type} ]]; then
     fi
 elif [[ "ClassicPress" == ${type} ]]; then
     if [[ ! -f "${path}/wp-config.php" ]]; then
-        wp core download --quiet --path="${path}" https://github.com/ClassicPress/ClassicPress-release/archive/1.3.0-rc2.zip
+        wp core download --quiet --path="${path}" https://classicpress.net/latest.zip
         wp config create --dbhost=localhost --dbname=${domain} --dbuser=classicpress --dbpass=classicpress --quiet --path="${path}"
         wp core install  --url="https://${domain}.test" --title="${domain}.test" --admin_user=admin --admin_password=password --admin_email="admin@${domain}.test" --skip-email --quiet --path="${path}"
         
