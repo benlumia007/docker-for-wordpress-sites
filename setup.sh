@@ -47,7 +47,7 @@ elif [[ "ClassicPress" == ${type} ]]; then
 else
     if [[ ! -f "${path}/wp-config.php" ]]; then
       if [[ ${ms} == 'sub-domain' ]]; then 
-        echo ${ms}
+        echo "this is a sub-domain"
       elif [[ ${ms} == 'sub-directory' ]]; then
         echo ${ms}
       else
