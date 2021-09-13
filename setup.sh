@@ -47,7 +47,10 @@ elif [[ "ClassicPress" == ${type} ]]; then
 else
     if [[ ! -f "${path}/wp-config.php" ]]; then
       if [[ ${ms} == 'sub-domain' ]]; then 
-        echo "this is a sub-domain"
+        wp core download --quiet --path="${path}"
+        wp config create --dbhost=localhost --dbname=${domain} --dbuser=wordpress --dbpass=wordpress --quiet --path="${path}"
+        wp core multisite-install --subdomains --url="${domain}" --title="${domain}.test" --admin_user=admin --admin_password=password --admin_email="admin@${domain}.test" --skip-email --quiet --path="${path}"
+
       elif [[ ${ms} == 'sub-directory' ]]; then
         echo ${ms}
       else
