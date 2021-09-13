@@ -53,6 +53,7 @@ else
         if [[ "${ms}" == 'sub-domain' ]]; then
           wp core multisite-install --subdomains --url="${domain}.test" --title="${domain}.test" --admin_user=admin --admin_password=password --admin_email="admin@${domain}.test" --skip-email  --path="${path}"
         elif [[ "${ms}" == 'sub-directory' ]]; then
+          echo "installing ${ms}"
           wp core multisite-install --url="${domain}.test" --title="${domain}.test" --admin_user=admin --admin_password=password --admin_email="admin@${domain}.test" --skip-email  --path="${path}"
 
         fi
