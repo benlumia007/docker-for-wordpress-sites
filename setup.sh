@@ -49,7 +49,7 @@ else
       if [[ ${ms} == 'sub-domain' ]]; then 
         wp core download --quiet --path="${path}"
         wp config create --dbhost=localhost --dbname=${domain} --dbuser=wordpress --dbpass=wordpress --quiet --path="${path}"
-        wp core multisite-install --subdomains --url="${domain}" --title="${domain}.test" --admin_user=admin --admin_password=password --admin_email="admin@${domain}.test" --skip-email --quiet --path="${path}"
+        wp core multisite-install --subdomains --url="${domain}" --title="${domain}.test" --admin_user=admin --admin_password=password --admin_email="admin@${domain}.test" --skip-email --path="${path}"
 
       elif [[ ${ms} == 'sub-directory' ]]; then
         echo ${ms}
